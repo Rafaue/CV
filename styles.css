@@ -1,0 +1,486 @@
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+    }
+
+    :root {
+        --primary-color: #3498db;
+        --secondary-color: #2980b9;
+        --text-primary: #2c3e50;
+        --text-secondary: #34495e;
+        --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        --card-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        --transition-speed: 0.3s;
+    }
+
+    body {
+        background: var(--bg-gradient);
+        min-height: 100vh;
+        min-width: 350px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+
+    main {
+        position: relative;
+        width: 100%;
+        min-width: 320px;
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header {
+        text-align: center;
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: clamp(2rem, 5vw, 2.5rem);
+        margin-bottom: 0.5rem;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .subtitle {
+        font-size: clamp(1rem, 3vw, 1.2rem);
+        margin-bottom: 1.5rem;
+        color: var(--text-secondary);
+    }
+
+    .flip-button {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all var(--transition-speed) ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+        font-weight: 500;
+    }
+
+    .flip-button:hover,
+    .flip-button:focus {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+        outline: none;
+    }
+
+    .scene {
+        position: relative;
+        width: 100%;
+        perspective: 3000px;
+        min-height: 100%;
+    }
+
+    .cv-content {
+        position: relative;
+        width: 100%;
+        transform-style: preserve-3d;
+        transition: transform 0.6s;
+    }
+
+    .cv-face {
+        width: 100%;
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: var(--card-shadow);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
+
+    .cv-face.front {
+        position: relative;
+    }
+
+    .cv-face.back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: rotateY(180deg);
+    }
+
+    .cv-content.flipped {
+        transform: rotateY(180deg);
+    }
+
+    .cv-section {
+        margin-bottom: 2rem;
+    }
+
+    .cv-section h2 {
+        color: var(--primary-color);
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+        font-size: clamp(1.3rem, 4vw, 1.5rem);
+    }
+
+    .cv-item {
+        margin-bottom: 1.5rem;
+    }
+
+    .cv-item h3 {
+        color: var(--text-primary);
+        margin-bottom: 0.3rem;
+        font-size: clamp(1.1rem, 3vw, 1.2rem);
+    }
+
+    .cv-item .date {
+        color: #7f8c8d;
+        font-style: italic;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .cv-item p {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 0.5rem;
+    }
+
+    .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+
+    .skill {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        transition: all var(--transition-speed) ease;
+        font-weight: 500;
+    }
+
+    .skill:hover {
+        transform: translateY(-2px);
+        background-color: var(--secondary-color);
+    }
+
+    .bg-animation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .bg-bubble {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        animation: float 8s infinite ease-in-out;
+    }
+
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 0.8;
+        }
+        50% {
+            transform: translateY(-20px) rotate(180deg);
+            opacity: 0.5;
+        }
+    }
+
+    .bg-bubble:nth-child(1) { width: 80px; height: 80px; left: 10%; top: 10%; }
+    .bg-bubble:nth-child(2) { width: 120px; height: 120px; left: 80%; top: 20%; animation-delay: 1s; }
+    .bg-bubble:nth-child(3) { width: 60px; height: 60px; left: 30%; top: 70%; animation-delay: 2s; }
+    .bg-bubble:nth-child(4) { width: 100px; height: 100px; left: 70%; top: 80%; animation-delay: 3s; }
+
+    footer {
+        margin-top: 2rem;
+        color: #7f8c8d;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    .lanyard {
+        position: fixed;
+        top: -20px;
+        right: clamp(20px, 5vw, 50px);
+        width: min(300px, 30vw);
+        height: min(400px, 40vh);
+        transform-origin: 50% 0;
+        pointer-events: none;
+        animation: lanyardSway 3s ease-in-out infinite;
+        z-index: 1000;
+    }
+
+    .badge {
+        position: absolute;
+        top: min(280px, 30vh);
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(280px, 28vw);
+        height: min(200px, 20vh);
+        pointer-events: auto;
+        cursor: pointer;
+    }
+
+    .badge-image {
+        width: min(160px, 16vw);
+        height: min(160px, 16vw);
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    @media (min-width: 2000px) {
+        .lanyard {
+            right: calc(50vw - 950px);
+        }
+    }
+
+    .lanyard-string {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 25px;
+        height: 300px;
+        background: linear-gradient(90deg, #003366, #0055a4);
+        transform-origin: 50% 0;
+        border-radius: 4px;
+        pointer-events: auto;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 12px;
+        text-transform: uppercase;
+        overflow: hidden;
+    }
+
+    .lanyard-string::before {
+        content: 'University • of • Technology • Opole ';
+        position: absolute;
+        white-space: nowrap;
+        transform: rotate(90deg);
+        color: white;
+        opacity: 0.9;
+    }
+
+    .badge {
+        position: absolute;
+        top: 280px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 280px;
+        height: 200px;
+        pointer-events: auto;
+        cursor: pointer;
+    }
+
+    .badge-content {
+        transform-origin: center;
+        will-change: transform;
+        background: white;
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        display: flex;
+        gap: 15px;
+        height: 100%;
+        border: 1px solid #eee;
+    }
+
+    .badge-image {
+        width: 160px;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .badge-text {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .badge-text h3 {
+        color: var(--primary-color);
+        margin-bottom: 5px;
+        font-size: 1.2rem;
+    }
+
+    .badge-text p {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin: 2px 0;
+    }
+
+    @keyframes lanyardSway {
+        0%, 100% { transform: rotate(-1deg); }
+        50% { transform: rotate(2deg); }
+    }
+
+
+    @media (max-width: 1200px) {
+        .lanyard {
+            right: 20px;
+        }
+    }
+
+    @media (max-width: 900px) {
+        .lanyard {
+            display: none;
+        }
+    }
+    @keyframes stringWave {
+        0%, 100% { transform: rotate(-1deg) scaleY(1); }
+        50% { transform: rotate(1deg) scaleY(0.98); }
+    }
+
+    @keyframes badgeTilt {
+        0%, 100% { transform: rotate(0deg); }
+        25% { transform: rotate(-2deg); }
+        75% { transform: rotate(2deg); }
+    }
+
+    @media print {
+        body { background: none; padding: 1cm; }
+        .flip-button, .bg-animation { display: none; }
+        .scene { box-shadow: none; }
+        .skill { border: 1px solid var(--primary-color); }
+    }
+
+    @media (max-width: 768px) {
+        body { padding: 1rem; }
+        .cv-content { padding: 0.5rem; }
+        .skills { gap: 0.5rem; }
+        .skill { font-size: 0.8rem; padding: 0.4rem 0.8rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            animation: none !important;
+            transition: none !important;
+        }
+    }
+
+    #main-title.animate, #subtitle.animate {
+        animation: fadeInOut 0.5s ease-in-out;
+    }
+
+    @keyframes fadeInOut {
+        0% {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .consent-text {
+        font-size: 0.8rem;
+        font-style: italic;
+        color: var(--text-secondary);
+        line-height: 1.4;
+    }
+
+    .data-consent-note {
+        width: 100%;
+        max-width: 800px;
+        margin: 2rem auto;
+        perspective: 1000px;
+    }
+
+    .note-paper {
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.6s;
+    }
+
+    .note-content {
+        background: #fffdf7;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        position: relative;
+        backface-visibility: hidden;
+    }
+
+    .back-note {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transform: rotateY(180deg);
+    }
+
+    .paper-clip {
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        width: 50px;
+        height: 25px;
+        border: 3px solid #7f8c8d;
+        border-radius: 5px 5px 0 0;
+        transform: rotate(-5deg);
+    }
+
+    .paper-clip::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 5px;
+        width: 35px;
+        height: 15px;
+        border-left: 3px solid #7f8c8d;
+        border-right: 3px solid #7f8c8d;
+        border-radius: 0 0 5px 5px;
+    }
+
+    .handwritten {
+        font-family: 'Segoe Script', cursive;
+        color: #2c3e50;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .signature {
+        font-family: 'Segoe Script', cursive;
+        color: #2c3e50;
+        font-size: 1.2rem;
+        text-align: right;
+        margin-top: 1rem;
+        font-style: italic;
+    }
+
+    .cv-content.flipped + .data-consent-note .note-paper {
+        transform: rotateY(180deg);
+    }
+    
+    .note-paper.flipped {
+        transform: rotateY(180deg);
+    }
+
+    @media (max-width: 768px) {
+        .data-consent-note {
+            padding: 0 1rem;
+        }
+    }

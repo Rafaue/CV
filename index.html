@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rafał Gola - CV">
+    <meta name="keywords" content="CV, Resume, Web Development">
+    <meta name="author" content="Rafał Gola">
+    <title>Interactive CV</title>
+    <link rel="icon" type="image/png" href="zdjcv.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>    
+    <div class="lanyard">
+        <div class="lanyard-string"></div>
+        <div class="badge">
+            <div class="badge-content">
+                <img src="zdjcv.jpg" alt="Rafał Gola" class="badge-image">
+                <div class="badge-text">
+                    <h4>Rafał Gola</h4>
+                    <p>Student</p>
+                    <p>Informatyka</p>
+                    <p>4 Semestr</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-animation" aria-hidden="true">
+        <div class="bg-bubble"></div>
+    </div>
+
+    <main>
+        <header>
+            <h1 id="main-title">My Curriculum Vitae</h1>
+            <p class="subtitle" id="subtitle">Click the button below to switch between English and Polish versions</p>
+        </header>
+
+        <button class="flip-button" id="flip-button" aria-label="Switch language">Switch to Polish</button>
+
+        <div class="scene" role="region" aria-label="CV content">
+            <div class="cv-content" id="cv-content">
+                <div class="cv-face front">
+                    <div class="cv-section">
+                        <h2>Personal Information</h2>
+                        <div class="cv-item">
+                            <h3>Rafał Gola</h3>
+                            <p>Computer Science Student</p>
+                            <p>Email: rafal_gola@o2.pl</p>
+                            <p>Phone: +48 609 055 020</p>
+                            <p>Location: Opole, Poland</p>
+                        </div>
+                    </div>
+
+                    <div class="cv-section">
+                        <h2>Summary</h2>
+                        <div class="cv-item">
+                            <p>I started my programming journey at the age of 14, turning a teenage hobby into a true passion. Currently, as a Computer Science student, I am fascinated by artificial intelligence and new technologies. I am characterized by strong determination in pursuing goals and a constant desire to develop and learn new technologies. I love transforming complex problems into elegant solutions through code.</p>
+                        </div>
+                    </div>
+
+                    <div class="cv-section">
+                        <h2>Education</h2>
+                        <div class="cv-item">
+                            <h3>Bachelor's Degree in Computer Science</h3>
+                            <div class="date">October 2023 - Present</div>
+                            <p>Opole University of Technology</p>
+                        </div>
+                    </div>
+
+                    <div class="cv-section">
+                        <h2>Technical Skills</h2>
+                        <div class="cv-item">
+                            <div class="skills">
+                                <span class="skill">Julia</span>
+                                <span class="skill">Python</span>
+                                <span class="skill">HTML5</span>
+                                <span class="skill">MySQL</span>
+                                <span class="skill">Oracle</span>
+                                <span class="skill">CSS3</span>
+                                <span class="skill">JavaScript</span>
+                                <span class="skill">PHP</span>
+                                <span class="skill">Responsive Design</span>
+                                <span class="skill">React</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cv-section">
+                        <h2>Soft Skills</h2>
+                        <div class="cv-item">
+                            <div class="skills">
+                                <span class="skill">Teamwork</span>
+                                <span class="skill">Problem Solving</span>
+                                <span class="skill">Communication</span>
+                                <span class="skill">Time Management</span>
+                                <span class="skill">Adaptability</span>
+                                <span class="skill">Work Organization</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cv-section">
+                        <h2>Languages</h2>
+                        <div class="cv-item">
+                            <p>English - Advanced</p>
+                            <p>German - Advanced</p>
+                            <p>Polish - Native</p>
+                            <p>French - Beginner</p>
+                        </div>
+                    </div>
+
+                    <div class="cv-section">
+                        <h2>Interests</h2>
+                        <div class="cv-item">
+                            <p>• New Technologies and Programming</p>
+                            <p>• Self-development</p>
+                            <p>• Skiing and Mountain Hiking</p>
+                            <p>• Electronics and Arduino Projects</p>
+                            <p>• Music and Playing Instruments</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cv-face back">
+                    <div class="cv-section">
+                        <h2>Dane Osobowe</h2>
+                        <div class="cv-item">
+                            <h3>Rafał Gola</h3>
+                            <p>Student Informatyki</p>
+                            <p>Email: rafal_gola@o2.pl</p>
+                            <p>Telefon: +48 609 055 020</p>
+                            <p>Lokalizacja: Opole, Polska</p>
+                        </div>
+                    </div>
+
+                    <div class="cv-section">
+                        <h2>Podsumowanie</h2>
+                        <div class="cv-item">
+                            <p>Moją przygodę z programowaniem rozpocząłem w wieku 14 lat, przekształcając nastoletnie hobby w prawdziwą pasję. Obecnie, jako student informatyki, jestem zafascynowany sztuczną inteligencją i nowymi technologiami. Charakteryzuje mnie silna determinacja w dążeniu do celu oraz nieustanna chęć rozwoju i poznawania nowych technologii. Uwielbiam przekształcać złożone problemy w eleganckie rozwiązania poprzez kod.</p>
+                        </div>
+                    </div>
+
+                    <div class="cv-section">
+                        <h2>Edukacja</h2>
+                        <div class="cv-item">
+                            <h3>Studia licencjackie z Informatyki</h3>
+                            <div class="date"> Październik 2023 - Obecnie</div>
+                            <p>Politechnika Opolska</p>
+                        </div>
+                    </div>
+
+                    <div class="cv-section">
+                        <h2>Umiejętności Techniczne</h2>
+                        <div class="cv-item">
+                            <div class="skills">
+                                <span class="skill">Julia</span>
+                                <span class="skill">Python</span>
+                                <span class="skill">HTML5</span>
+                                <span class="skill">MySql</span>
+                                <span class="skill">Oracle</span>
+                                <span class="skill">CSS3</span>
+                                <span class="skill">JavaScript</span>
+                                <span class="skill">PHP</span>
+                                <span class="skill">Responsive Design</span>
+                                <span class="skill">React</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cv-section">
+                        <h2>Umiejętności Miękkie</h2>
+                        <div class="cv-item">
+                            <div class="skills">
+                                <span class="skill">Praca w zespole</span>
+                                <span class="skill">Rozwiązywanie Problemów</span>
+                                <span class="skill">Komunikatywność</span>
+                                <span class="skill">Zarządzanie Czasem</span>
+                                <span class="skill">Adaptacyjność</span>
+                                <span class="skill">Organizacja pracy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cv-section">
+                        <h2>Języki</h2>
+                        <div class="cv-item">
+                            <p>Angielski - Zaawansowany</p>
+                            <p>Niemiecki - Zaawansowany</p>
+                            <p>Polski - Ojczysty</p>
+                            <p>Francuski - Początkujący</p> 
+                        </div>
+                    </div>
+
+                    <div class="cv-section">
+                        <h2>Zainteresowania</h2>
+                        <div class="cv-item">
+                            <p>• Nowe Technologie i Programowanie</p>
+                            <p>• Samorozwój</p>
+                            <p>• Jazda na nartach i wędrówki górskie</p>
+                            <p>• Elektronika i projekty arduino</p>
+                            <p>• Muzyka i gra na instrumentach</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="data-consent-note">
+        <div class="note-paper">
+            <div class="note-content front-note">
+                <div class="paper-clip"></div>
+                <p class="handwritten">Data Processing Consent</p>
+                <p>I hereby give consent for my personal data included in this CV to be processed for recruitment purposes.</p>
+                <p class="signature">Rafał Gola</p>
+            </div>
+            <div class="note-content back-note">
+                <div class="paper-clip"></div>
+                <p class="handwritten">Zgoda na Przetwarzanie Danych</p>
+                <p>Wyrażam zgodę na przetwarzanie moich danych osobowych zawartych w tym CV dla potrzeb procesu rekrutacji.</p>
+                <p class="signature">Rafał Gola</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p id="footer-text">&copy; 2025 My CV | All rights reserved</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
